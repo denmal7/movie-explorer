@@ -21,17 +21,17 @@ const Navbar = ({ onSearch }) => {
     }
 
   return (
-    <nav className='sticky top-0 z-50 bg-gray-900 bg-opacity-80 backdrop-blur-md shadow-md'>
-        <div className='max-w-6xl mx-auto flex items-center justify-between p-4'>
-            <h1 className='text-2xl font-bold text-green-400'>Movie Explorer</h1>
+    <nav className='fixed top-0 left-0 w-full z-50 bg-gray-900 bg-opacity-80 backdrop-blur-md shadow-md'>
+        <div className='max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between p-4'>
+            <h1 className='text-xl sm:text-2xl font-bold text-green-400 text-center sm:text-left'>Movie Explorer</h1>
 
-            <form onSubmit={handleSubmit} className="relative flex items-center">
+            <form onSubmit={handleSubmit} className="relative flex items-center w-full sm:w-auto">
                 <input 
                   type='text'
                   placeholder='Search Movies...'
                   value={searchTerm}
                   onChange={handleChange}
-                  className='pl-10 pr-9 py-1 rounded-lg bg-gray-800 text-white focus:outline-none'
+                  className='w-full sm:w-64 pl-10 pr-9 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none'
             />
             <button
               type="submit"

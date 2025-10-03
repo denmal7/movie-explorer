@@ -98,7 +98,7 @@ const App = () => {
      movie.title.toLowerCase().includes(query.toLocaleLowerCase())
   );
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="min-h-screen bg-gray-950 text-white pt-16 overflow-hidden">
       <Navbar 
         onSearch={handleSearch}
       />
