@@ -2,7 +2,7 @@
 
 const GenreDropdown = ({ genres, selectedGenre, onSelect }) => {
   return (
-    <div className="mb-4 mt-20">
+    <div className="mb-4 mt-6">
         <select
           value={selectedGenre}
           onChange={(e) => onSelect(e.target.value)}
