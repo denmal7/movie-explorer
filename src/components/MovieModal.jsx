@@ -9,8 +9,8 @@ const MovieModal = ({ movie, onClose }) => {
     );
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex justify-center items-center z-50">
-            <div className="bg-gray-900 rounded-xl w-full max-w-3xl overflow-hidden shadow-xl relative">
+        <div className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex justify-center items-center z-50 px-2 sm:px-4">
+            <div className="bg-gray-900 rounded-xl w-full max-w-md sm:max-w-2xl lg:max-w-3xl overflow-hidden shadow-xl relative">
                 {/* Close button */}
                 <button
                   onClick={onClose}
@@ -21,24 +21,24 @@ const MovieModal = ({ movie, onClose }) => {
 
                 {/* Movie Poster */}
                 <div className="relative flex flex-col justify-center">
-                    <div className="flex-[3]">
+                    <div>
                         <img
                           src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}
                           alt={movie.title}
-                          className="w-full h-64 object-cover"
+                          className="w-full h-48 sm:h-64 object-cover"
                         />
                     </div>
-                    <div className="flex-[1] w-full bg-gray-900">
-                        <h2 className="text-sm text-white font-semibold truncate">{movie.title}</h2>
+                    <div className="p-3 bg-gray-900">
+                        <h2 className="text-base sm:text-lg text-white font-semibold truncate">{movie.title}</h2>
                         <p className="text-xs text-gray-300">⭐ {movie.vote_average.toFixed(1)}</p>
                     </div>
                 </div>
                 
                 {/* Movie info */}
-                <div className="p-4">
-                    <p className="text-gray-200 mb-4">{movie.overview}</p>
+                <div className="p-4 max-h-[60vh] overflow-y-auto">
+                    <p className="text-gray-200 text-sm sm:text-base mb-4">{movie.overview}</p>
                     {movie.genres && (
-                        <p className="text-sm text-green-400 mb-2">
+                        <p className="text-xs sm:text-sm text-green-400 mb-2">
                             Genres: {movie.genres.map((g) => g.name).join(", ")}
                         </p>
                     )}
@@ -46,7 +46,7 @@ const MovieModal = ({ movie, onClose }) => {
                     {/* Trailer */}
                     {trailer ? (
                         <iframe
-                          className="w-full h-64 rounded-lg"
+                          className="w-full h-48 sm:h-64 rounded-lg"
                           src={`https://www.youtube.com/embed/${trailer.key}`}
                           title="Trailer"
                           allowFullScreen
